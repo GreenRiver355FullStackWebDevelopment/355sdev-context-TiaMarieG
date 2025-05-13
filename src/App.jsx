@@ -3,6 +3,9 @@ import Main from "./components/Main";
 import { useEffect, useState } from "react";
 import "./App.css";
 
+// Importing context to app.jsx to store needed information in
+import { RestaurantContext } from "./context/RestaurantContext";
+
 function App() {
   const [restaurantState, setRestaurants] = useState([]);
 
@@ -25,9 +28,17 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <Main />
-    </div>
+    // Adding the information that is to be stored in the context
+    <RestaurantContext.Provider
+      value={{
+        restaurantState: restaurantState,
+        updateRestaurants: updateRestaurants
+      }}>
+      <div className="App">
+        <Main />
+      </div>
+    </RestaurantContext.Provider>
+
   );
 }
 export default App;
