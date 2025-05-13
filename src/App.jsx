@@ -31,7 +31,7 @@ function App() {
     // Adding the information that is to be stored in the context
     <RestaurantContext.Provider
       value={{
-        restaurantState: restaurantState,
+        restaurants: restaurantState,
         updateRestaurants: updateRestaurants
       }}>
       <div className="App">
