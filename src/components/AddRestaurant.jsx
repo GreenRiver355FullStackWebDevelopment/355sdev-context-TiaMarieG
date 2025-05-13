@@ -1,6 +1,13 @@
 import { useState } from "react";
 
+//Importing info from Context to be used here
+import { useRestaurants } from '../context/RestaurantContext';
+
 function AddRestaurant() {
+
+  // Saving the information to a variable so that it can be used by the component
+  const { updateRestaurants } = useRestaurants();
+
   const [formData, setFormData] = useState({
     name: "",
     address: "",
